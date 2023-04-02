@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import NavbarComponent from "./Component/NavbarComponent";
+import Footer from "./Component/Footer";
+import Content from "./Component/Content";
+import HeroImage from "./Component/HeroImage";
+import Acordion from "./Component/Accordiont";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <NavbarComponent />
+        <Switch>
+          <Route exact path="/contact" Component={Contact} />
+          <Route exact path="/about" Component={About} />
+        </Switch>
+        <HeroImage />
+        <Content />
+        <Acordion />
+        <Footer />
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
